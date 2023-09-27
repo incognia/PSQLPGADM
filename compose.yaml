@@ -1,0 +1,79 @@
+services:
+  psql01:
+    container_name: PostgreSQL_01
+    hostname: psql01
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cdmx.fondeso/postgres:0.0.1-bookworm-slim
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PW}
+      - POSTGRES_DB=${POSTGRES_DB} #optional (specify default database instead of $POSTGRES_DB)
+    ports:
+      - "10022:22"
+      - "15432:5432"
+    restart: always
+    volumes:
+      - psql01_data:/var/lib/postgresql/data
+
+  psql02:
+    container_name: PostgreSQL_02
+    hostname: psql02
+    image: cdmx.fondeso/postgres:0.0.1-bookworm-slim
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PW}
+      - POSTGRES_DB=${POSTGRES_DB} #optional (specify default database instead of $POSTGRES_DB)
+    ports:
+      - "20022:22"
+      - "25432:5432"
+    restart: always
+    volumes:
+      - psql02_data:/var/lib/postgresql/data
+
+  psql03:
+    container_name: PostgreSQL_03
+    hostname: psql03
+    image: cdmx.fondeso/postgres:0.0.1-bookworm-slim
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PW}
+      - POSTGRES_DB=${POSTGRES_DB} #optional (specify default database instead of $POSTGRES_DB)
+    ports:
+      - "30022:22"
+      - "35432:5432"
+    restart: always
+    volumes:
+      - psql03_data:/var/lib/postgresql/data
+
+  psql04:
+    container_name: PostgreSQL_04
+    hostname: psql04
+    image: cdmx.fondeso/postgres:0.0.1-bookworm-slim
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PW}
+      - POSTGRES_DB=${POSTGRES_DB} #optional (specify default database instead of $POSTGRES_DB)
+    ports:
+      - "40022:22"
+      - "45432:5432"
+    restart: always
+    volumes:
+      - psql04_data:/var/lib/postgresql/data
+
+  pgadmin:
+    container_name: pgAdmin
+    hostname: pgadmin
+    image: dpage/pgadmin4:latest
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_MAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PW}
+    ports:
+      - "8080:80"
+    restart: always
+volumes:
+  psql01_data:
+  psql02_data:
+  psql03_data:
+  psql04_data:
