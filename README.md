@@ -4,9 +4,12 @@ More details on how to customize the installation and the compose file can be fo
 
 Project structure:
 ```
-.
-├── .env
+PSQLPGADM//
+├── clean.sh*
 ├── compose.yaml
+├── docker-entrypoint.sh*
+├── Dockerfile
+├── LICENSE
 └── README.md
 ```
 
