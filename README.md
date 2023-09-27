@@ -107,7 +107,7 @@ Before deploying this setup, you need to configure the following values in the [
 - PGADMIN_PW
 
 ## Deploy with docker compose
-When deploying this setup, the pgAdmin web interface will be available at port 5050 (e.g. http://localhost:5050).  
+When deploying this setup, the pgAdmin web interface will be available at port 8080 (e.g. http://docker.fondeso.mx:8080).  
 
 ``` shell
 $ docker compose up
